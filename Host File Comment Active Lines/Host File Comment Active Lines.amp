@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="e42571c5-c572-488a-9af8-e792ebcd17c8" Name="Host File Comment Active Lines" Description="QWRkIGEgIyBjaGFyYWN0ZXIgYmVmb3JlIGV2ZXJ5IGFjdGl2ZSBsaW5lIG1ha2luZyB0aG9zZSBpbmFjdGl2ZS4=" Version="2.16.0.1" MinRequiredVersion="2.16.0.1" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="3.0">
+  <Object ID="{1a63c666-666b-4d21-8b2e-6a244addf365}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml /&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" />
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.18.1.8" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>574,1660</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="574,1660" MinRequiredVersion="2.16.0.1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:GetEnvironmentVariable Type_ItemProp="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.3.0.66, Culture=neutral, PublicKeyToken=null" DisplayName="Windows Directory" sap:VirtualizedContainerService.HintSize="538,124" MinRequiredVersion="2.10.0.19" Moniker="4876a8c8-3ee9-4ad5-b717-4a5610c0945c" Result="[GetEnvironmentVariable_Result]" ResultString="[GetEnvironmentVariable_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" Type="None" TypeName="GetEnvironmentVariable" Type_DisplayArg="None" Type_Item="{x:Null}" Value="[GetEnvironmentVariable_Value]" Variable="SYSTEMROOT" Variable_DisplayArg="SYSTEMROOT" Variable_Item="{x:Null}" m_bTextLinkChange="False" />
+        <p:FormatString Input0_ItemProp="{x:Null}" Input1_DisplayArg="{x:Null}" Input1_ItemProp="{x:Null}" Text_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.3.0.66, Culture=neutral, PublicKeyToken=null" DisplayName="Host File Location" FormattedString="[FormatString_FormattedString]" sap:VirtualizedContainerService.HintSize="538,160" Input0="[GetEnvironmentVariable_Value]" Input0_DisplayArg="Windows Directory.Value" Input0_Item="{x:Null}" Input1="{x:Null}" Input1_Item="{x:Null}" MinRequiredVersion="2.10.0.19" Moniker="248cd9e0-4faf-4d98-9749-8d9607087ffe" Result="[FormatString_Result]" ResultString="[FormatString_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" Text="{}{0}\SYSTEM32\DRIVERS\ETC\HOSTS" Text_DisplayArg="{}{0}\SYSTEM32\DRIVERS\ETC\HOSTS" Text_Item="{x:Null}" TypeName="FormatString" m_bTextLinkChange="False" />
+        <p:FileExists File_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.3.0.66, Culture=neutral, PublicKeyToken=null" Conditional="[FileExists_Conditional]" DisplayName="Host File Excist" File="[FormatString_FormattedString]" File_DisplayArg="Host File Location.FormattedString" File_Item="{x:Null}" sap:VirtualizedContainerService.HintSize="538,88" MinRequiredVersion="2.10.0.19" Moniker="058a0aea-436b-477d-ae6c-dd6f6fb2d3a7" Result="[FileExists_Result]" ResultString="[FileExists_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="FileExists" m_bTextLinkChange="False" />
+        <p:IfObject CaseSensitive_ItemProp="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_ItemProp="{x:Null}" VerboseOutput_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.3.0.66, Culture=neutral, PublicKeyToken=null" CaseSensitive="True" CaseSensitive_DisplayArg="true" CaseSensitive_Item="{x:Null}" Condition="equals" Condition_DisplayArg="equals" Condition_Item="{x:Null}" DisplayName="If" sap:VirtualizedContainerService.HintSize="538,945" MinRequiredVersion="2.16.0.1" Moniker="78a12ed5-2a08-4f1c-9b4d-d2dfa08aa0db" Result="[IfObject_Result]" ResultString="[IfObject_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfObject" Value_DisplayArg="True" Value_Type="x:String" Variable="[FileExists_Conditional]" Variable_DisplayArg="Host File Excist.Conditional" Variable_Item="{x:Null}" Variable_Type="x:String" VerboseOutput="False" VerboseOutput_DisplayArg="" VerboseOutput_Item="{x:Null}" m_bTextLinkChange="False">
+          <p:IfObject.IfOption>
+            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="506,672" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.3.0.66, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="468,522" MinRequiredVersion="2.10.0.19" Moniker="f0dbeeaf-6259-4048-b25b-796ccc7f770b" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="e8970b7b-f59a-43fd-84f1-e43e8923bd84" m_bTextLinkChange="False" script="JABIAG8AcwB0AEMAbwBuAHQAZQBuAHQAIAA9ACAARwBlAHQALQBDAG8AbgB0AGUAbgB0ACAAJABzAHQAcgBMAG8AYwBhAHQAaQBvAG4ADQAKAEMAbABlAGEAcgAtAEMAbwBuAHQAZQBuAHQAIAAkAHMAdAByAEwAbwBjAGEAdABpAG8AbgANAAoADQAKAEYAbwByAGUAYQBjAGgAIAAoACQASABvAHMAdABsAGkAbgBlACAAaQBuACAAJABIAG8AcwB0AEMAbwBuAHQAZQBuAHQAKQAgAHsADQAKACAAIAAgACAAJABvAHUAdABwAHUAdAAgAD0AIABzAHcAaQB0AGMAaAAgAC0AUgBlAGcAZQB4ACAAKAAkAEgAbwBzAHQAbABpAG4AZQApACAAewANAAoAIAAgACAAIAAgACAAIAAgACcAXgBcAHMAKgAkACcAIAB7ACAAYgByAGUAYQBrACAAfQAgACMAIABFAG0AcAB0AHkAIABsAGkAbgBlAA0ACgAgACAAIAAgACAAIAAgACAAJwBeAFwAcwAqAFsAIwBdACcAIAB7ACAAYgByAGUAYQBrACAAfQAgACMAIABMAGkAbgBlACAAYQBsAHIAZQBhAGQAeQAgAHMAdABhAHIAdABzACAAdwBpAHQAaAAgAGEAIAAjAA0ACgAgACAAIAAgACAAIAAgACAAJwB2AG0AdwBhAHIAZQBcAC0AcABsAHUAZwBpAG4AJwAgAHsAIABiAHIAZQBhAGsAIAB9AA0ACgAgACAAIAAgACAAIAAgACAAJwB2AGkAZQB3AFwALQBsAG8AYwBhAGwAaABvAHMAdAAnACAAewAgAGIAcgBlAGEAawAgAH0ADQAKACAAIAAgACAAIAAgACAAIAAnAHYAbQB3AGEAcgBlAFwALQBsAG8AYwBhAGwAaABvAHMAdAAnACAAewAgAGIAcgBlAGEAawAgAH0ADQAKACAAIAAgACAAIAAgACAAIAAnAF4AXABzACoAMQAyADcAXAAuADAAXAAuADAAXAAuADEAXABzACsAbABvAGMAYQBsAGgAbwBzAHQAJwAgAHsAIABiAHIAZQBhAGsAIAB9AA0ACgAgACAAIAAgACAAIAAgACAAJwA6ADoAMQBcAHMAKwBsAG8AYwBhAGwAaABvAHMAdAAnACAAewAgAGIAcgBlAGEAawAgAH0ADQAKACAAIAAgACAAIAAgACAAIAAnAGUAYQB6AHkAbABpAG4AawBcAC4AegBlAHQAZQBzAFwALgBiAGUAJwAgAHsAIABiAHIAZQBhAGsAIAB9AA0ACgAgACAAIAAgACAAIAAgACAAZABlAGYAYQB1AGwAdAAgAHsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgACIAIwAgAG4ALQBhAGIAbABlACAAIwAgACIADQAKACAAIAAgACAAIAAgACAAIAB9AA0ACgAgACAAIAAgAH0ADQAKACAAIAAgACAAJABvAHUAdABwAHUAdAAgACsAIAAkAEgAbwBzAHQAbABpAG4AZQAgAHwAIABPAHUAdAAtAEYAaQBsAGUAIAAkAHMAdAByAEwAbwBjAGEAdABpAG8AbgAgAC0AYQBwAHAAZQBuAGQAIAAtAGUAbgBjACAAYQBzAGMAaQBpAA0ACgB9AA==">
+                  <p:RunPowerShellScript.InArgs>
+                    <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="strLocation" ArgType="string" DisplayArg="Host File Location.FormattedString" DisplayName="strLocation" Name="strLocation" isRequired="False">
+                      <p:InArg.Arg>
+                        <InArgument x:TypeArguments="x:String">[FormatString_FormattedString]</InArgument>
+                      </p:InArg.Arg>
+                    </p:InArg>
+                  </p:RunPowerShellScript.InArgs>
+                  <p:RunPowerShellScript.OutArgs>
+                    <scg:Dictionary x:TypeArguments="x:String, p:OutArg" />
+                  </p:RunPowerShellScript.OutArgs>
+                </p:RunPowerShellScript>
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+                <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+                <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfObject.IfOption>
+          <p:IfObject.Value>
+            <InArgument x:TypeArguments="x:Object">
+              <p:ObjectLiteral Value="True" />
+            </InArgument>
+          </p:IfObject.Value>
+        </p:IfObject>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="FileExists_Conditional" />
+        <Variable x:TypeArguments="x:String" Name="FileExists_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="FileExists_Result" />
+        <Variable x:TypeArguments="x:String" Name="GetEnvironmentVariable_Value" />
+        <Variable x:TypeArguments="x:String" Name="GetEnvironmentVariable_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="GetEnvironmentVariable_Result" />
+        <Variable x:TypeArguments="x:String" Name="FormatString_FormattedString" />
+        <Variable x:TypeArguments="x:String" Name="FormatString_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="FormatString_Result" />
+        <Variable x:TypeArguments="x:String" Name="IfObject_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="IfObject_Result" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
