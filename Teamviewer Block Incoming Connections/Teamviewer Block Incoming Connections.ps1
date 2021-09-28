@@ -12,7 +12,7 @@ $RandomPassword = if ((Get-ItemProperty $TeamViewerRegPath).Security_PasswordStr
     Restart-Service -Name "Teamviewer" -Force | Out-Null
     "Enabled"
 }
-$FixedPassword = if ($null -eq (Get-ItemProperty $TeamViewerRegPath).PermanentPassword) { 
+$FixedPassword = if ($null -ne (Get-ItemProperty $TeamViewerRegPath).PermanentPassword) { 
     Remove-ItemProperty -Path $TeamViewerRegPath -Name "PermanentPassword" -Force -ErrorAction SilentlyContinue | Out-Null
     Restart-Service -Name "Teamviewer" -Force | Out-Null
     "Enabled"
@@ -25,3 +25,4 @@ else { "Disabled" }
 "Fixed Password  : $FixedPassword"
 #endregion
 
+Test-Path -Path 
