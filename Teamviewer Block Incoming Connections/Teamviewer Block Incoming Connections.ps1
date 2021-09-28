@@ -8,12 +8,12 @@ if ($TeamViewerRegPath -eq "No TeamViewer Installed") {
 }
 
 $RandomPassword = if ((Get-ItemProperty $TeamViewerRegPath).Security_PasswordStrength -eq 3) { "Disabled" } else {
-    New-ItemProperty -Path $TeamViewerRegPath -Name "Security_PasswordStrength" -Value 3 -PropertyType DWORD -Force | Out-Null
+    New-ItemProperty -Path $TeamViewerRegPath -Name "Security_PasswordStrength" -Value 3 -PropertyType DWORD -Force -ErrorAction SilentlyContinue | Out-Null
     Restart-Service -Name "Teamviewer" -Force | Out-Null
     "Enabled"
 }
 $FixedPassword = if ($null -eq (Get-ItemProperty $TeamViewerRegPath).PermanentPassword) { 
-    Remove-ItemProperty -Path $TeamViewerRegPath -Name "PermanentPassword" -Force | Out-Null
+    Remove-ItemProperty -Path $TeamViewerRegPath -Name "PermanentPassword" -Force -ErrorAction SilentlyContinue | Out-Null
     Restart-Service -Name "Teamviewer" -Force | Out-Null
     "Enabled"
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="57e392c8-a8a4-4a04-b097-1faaa0dbd253" Name="Teamviewer Block Incoming Connections" Description="RGlzYWJsZSBpbmNvbWluZyBjb25uZWN0aW9ucyB0byBUZWFtVmlld2VyIGJ1dCBrZWVwIHRoZSBwb3NzaWJpbGl0eSB0byBtYWtlIG91dGdvaW5nIGNvbm5lY3Rpb25zIChMQU4gT25seSB3aWxsIGFsc28gZGlzYWJsZSBvdXRnb2luZyBjb25uZWN0aW9ucw==" Version="2.10.0.19" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{077adadd-d309-4466-ac81-e667f717b28c}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;OutputParameters&gt;&lt;Parameter ParameterName=&quot;FixedPassword&quot; Label=&quot;Fixed Password&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.Fixed Password&quot; /&gt;&lt;Parameter ParameterName=&quot;RandomPassword&quot; Label=&quot;Random Password&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.Random Password&quot; /&gt;&lt;Parameter ParameterName=&quot;TeamViewerPath&quot; Label=&quot;TeamViewer Path&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.TeamViewer Path&quot; /&gt;&lt;/OutputParameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System">
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>61b25607-0fc3-4886-86dc-5c9d142d1ada.TeamViewerRegPath</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>TeamViewerPath</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>61b25607-0fc3-4886-86dc-5c9d142d1ada.RandomPassword</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>RandomPassword</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>61b25607-0fc3-4886-86dc-5c9d142d1ada.FixedPassword</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>FixedPassword</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+    </hashset>
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.18.3.1" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>504,745</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="504,745" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.18.1.8, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="468,522" Moniker="61b25607-0fc3-4886-86dc-5c9d142d1ada" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="735456b4-c044-4328-bd1c-c94f7dc2deb9" m_bTextLinkChange="False" script="JABUAGUAYQBtAFYAaQBlAHcAZQByAFIAZQBnAFAAYQB0AGgAIAA9ACAAaQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIASABLAEwATQA6AFMAbwBmAHQAdwBhAHIAZQBcAFQAZQBhAG0AVgBpAGUAdwBlAHIAIgApACAAewAgACIASABLAEwATQA6AFMAbwBmAHQAdwBhAHIAZQBcAFQAZQBhAG0AVgBpAGUAdwBlAHIAIgAgAH0ADQAKAGUAbABzAGUAaQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIASABLAEwATQA6AFMAbwBmAHQAdwBhAHIAZQBcAFcAbwB3ADYANAAzADIATgBvAGQAZQBcAFQAZQBhAG0AVgBpAGUAdwBlAHIAIgApACAAewAgACIASABLAEwATQA6AFMAbwBmAHQAdwBhAHIAZQBcAFcAbwB3ADYANAAzADIATgBvAGQAZQBcAFQAZQBhAG0AVgBpAGUAdwBlAHIAIgAgAH0ADQAKAGUAbABzAGUAIAB7ACAAIgBOAG8AIABUAGUAYQBtAFYAaQBlAHcAZQByACAASQBuAHMAdABhAGwAbABlAGQAIgAgAH0ADQAKAA0ACgBpAGYAIAAoACQAVABlAGEAbQBWAGkAZQB3AGUAcgBSAGUAZwBQAGEAdABoACAALQBlAHEAIAAiAE4AbwAgAFQAZQBhAG0AVgBpAGUAdwBlAHIAIABJAG4AcwB0AGEAbABsAGUAZAAiACkAIAB7AA0ACgAgACAAIAAgACQAUgBhAG4AZABvAG0AUABhAHMAcwB3AG8AcgBkACAAPQAgACIARABpAHMAYQBiAGwAZQBkACIAIAAjACAAQgBvAGcAdQBzACAARABhAHQAYQANAAoAIAAgACAAIAAkAEYAaQB4AGUAZABQAGEAcwBzAHcAbwByAGQAIAA9ACAAIgBEAGkAcwBhAGIAbABlAGQAIgAgACMAIABCAG8AZwB1AHMAIABEAGEAdABhAA0ACgB9AA0ACgANAAoAJABSAGEAbgBkAG8AbQBQAGEAcwBzAHcAbwByAGQAIAA9ACAAaQBmACAAKAAoAEcAZQB0AC0ASQB0AGUAbQBQAHIAbwBwAGUAcgB0AHkAIAAkAFQAZQBhAG0AVgBpAGUAdwBlAHIAUgBlAGcAUABhAHQAaAApAC4AUwBlAGMAdQByAGkAdAB5AF8AUABhAHMAcwB3AG8AcgBkAFMAdAByAGUAbgBnAHQAaAAgAC0AZQBxACAAMwApACAAewAgACIARABpAHMAYQBiAGwAZQBkACIAIAB9ACAAZQBsAHMAZQAgAHsADQAKACAAIAAgACAATgBlAHcALQBJAHQAZQBtAFAAcgBvAHAAZQByAHQAeQAgAC0AUABhAHQAaAAgACQAVABlAGEAbQBWAGkAZQB3AGUAcgBSAGUAZwBQAGEAdABoACAALQBOAGEAbQBlACAAIgBTAGUAYwB1AHIAaQB0AHkAXwBQAGEAcwBzAHcAbwByAGQAUwB0AHIAZQBuAGcAdABoACIAIAAtAFYAYQBsAHUAZQAgADMAIAAtAFAAcgBvAHAAZQByAHQAeQBUAHkAcABlACAARABXAE8AUgBEACAALQBGAG8AcgBjAGUAIAAtAEUAcgByAG8AcgBBAGMAdABpAG8AbgAgAFMAaQBsAGUAbgB0AGwAeQBDAG8AbgB0AGkAbgB1AGUAIAB8ACAATwB1AHQALQBOAHUAbABsAA0ACgAgACAAIAAgAFIAZQBzAHQAYQByAHQALQBTAGUAcgB2AGkAYwBlACAALQBOAGEAbQBlACAAIgBUAGUAYQBtAHYAaQBlAHcAZQByACIAIAAtAEYAbwByAGMAZQAgAHwAIABPAHUAdAAtAE4AdQBsAGwADQAKACAAIAAgACAAIgBFAG4AYQBiAGwAZQBkACIADQAKAH0ADQAKACQARgBpAHgAZQBkAFAAYQBzAHMAdwBvAHIAZAAgAD0AIABpAGYAIAAoACQAbgB1AGwAbAAgAC0AZQBxACAAKABHAGUAdAAtAEkAdABlAG0AUAByAG8AcABlAHIAdAB5ACAAJABUAGUAYQBtAFYAaQBlAHcAZQByAFIAZQBnAFAAYQB0AGgAKQAuAFAAZQByAG0AYQBuAGUAbgB0AFAAYQBzAHMAdwBvAHIAZAApACAAewAgAA0ACgAgACAAIAAgAFIAZQBtAG8AdgBlAC0ASQB0AGUAbQBQAHIAbwBwAGUAcgB0AHkAIAAtAFAAYQB0AGgAIAAkAFQAZQBhAG0AVgBpAGUAdwBlAHIAUgBlAGcAUABhAHQAaAAgAC0ATgBhAG0AZQAgACIAUABlAHIAbQBhAG4AZQBuAHQAUABhAHMAcwB3AG8AcgBkACIAIAAtAEYAbwByAGMAZQAgAC0ARQByAHIAbwByAEEAYwB0AGkAbwBuACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAgACAAfAAgAE8AdQB0AC0ATgB1AGwAbAANAAoAIAAgACAAIABSAGUAcwB0AGEAcgB0AC0AUwBlAHIAdgBpAGMAZQAgAC0ATgBhAG0AZQAgACIAVABlAGEAbQB2AGkAZQB3AGUAcgAiACAALQBGAG8AcgBjAGUAIAB8ACAATwB1AHQALQBOAHUAbABsAA0ACgAgACAAIAAgACIARQBuAGEAYgBsAGUAZAAiAA0ACgB9AA0ACgBlAGwAcwBlACAAewAgACIARABpAHMAYQBiAGwAZQBkACIAIAB9AA==">
+          <p:RunPowerShellScript.InArgs>
+            <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+          </p:RunPowerShellScript.InArgs>
+          <p:RunPowerShellScript.OutArgs>
+            <p:OutArg x:Key="FixedPassword" ArgType="string" DisplayName="Fixed Password" Name="FixedPassword">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_FixedPassword]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="RandomPassword" ArgType="string" DisplayName="Random Password" Name="RandomPassword">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_RandomPassword]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="TeamViewerRegPath" ArgType="string" DisplayName="TeamViewer Path" Name="TeamViewerRegPath">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_TeamViewerRegPath]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+          </p:RunPowerShellScript.OutArgs>
+        </p:RunPowerShellScript>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_TeamViewerRegPath" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_RandomPassword" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_FixedPassword" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
