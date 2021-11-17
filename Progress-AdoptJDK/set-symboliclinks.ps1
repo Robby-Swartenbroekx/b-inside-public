@@ -1,4 +1,4 @@
-# Set Symbolic links for AdoptOpenJDK
+# Set Symbolic links for AdoptOpenJDK / Eclipse Foundation / Eclipse Adoptium
 # Written by Robby Swartenbroekx (b-inside bv)
 #
 # Distributed under a CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -10,14 +10,30 @@
 #
 # Releases:
 # v1.0  7/06/2021   Initial release
-#
+# v2.0  17/11/2021  Adapted script to support all newer folder names
 
 # Variables (you can change the progress path and AdoptOpenJDK paths if you install this on different locations)
 $AOJDK = @{
     Progress = "C:\Progress"
     Path     = @{
-        x86 = (Get-ChildItem -Path "${env:ProgramFiles(x86)}\AdoptOpenJDK" -Directory -ErrorAction SilentlyContinue)
-        x64 = (Get-ChildItem -Path "${env:ProgramFiles}\AdoptOpenJDK" -Directory -ErrorAction SilentlyContinue)
+        x86 = if (Test-Path -Path "${env:ProgramFiles(x86)}\Eclipse Adoptium") {
+            (Get-ChildItem -Path "${env:ProgramFiles(x86)}\Eclipse Adoptium" -Directory -ErrorAction SilentlyContinue)
+        }
+        elseif (Test-Path -Path "${env:ProgramFiles(x86)}\Eclipse Foundation") {
+            (Get-ChildItem -Path "${env:ProgramFiles(x86)}\Eclipse Foundation" -Directory -ErrorAction SilentlyContinue)
+        }
+        else {
+            (Get-ChildItem -Path "${env:ProgramFiles(x86)}\AdoptOpenJDK" -Directory -ErrorAction SilentlyContinue)
+        }
+        x64 = if (Test-Path -Path "${env:ProgramFiles}\Eclipse Adoptium") {
+            (Get-ChildItem -Path "${env:ProgramFiles}\Eclipse Adoptium" -Directory -ErrorAction SilentlyContinue)
+        }
+        elseif (Test-Path -Path "${env:ProgramFiles}\Eclipse Foundation") {
+            (Get-ChildItem -Path "${env:ProgramFiles}\Eclipse Foundation" -Directory -ErrorAction SilentlyContinue)
+        }
+        else {
+            (Get-ChildItem -Path "${env:ProgramFiles}\AdoptOpenJDK" -Directory -ErrorAction SilentlyContinue)
+        }
     }
 }
 $Output = ""
