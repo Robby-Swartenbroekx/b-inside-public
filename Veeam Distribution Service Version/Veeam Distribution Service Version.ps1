@@ -69,7 +69,34 @@ $Output = If ((Get-Service | where-object { $_.DisplayName -like "Veeam Distribu
                         default { "Error: Fout bij uitlezen versie" ; break }
                     }
                 }
-                { $_ -ge 12 } { "OK: Fixed version" }
+                12 {
+                    Switch ($VeeamDistVersionInfo.FileMinorPart) {
+                        0 {
+                            Switch ($VeeamDistVersionInfo.FileBuildPart) {
+                                0 {
+                                    Switch ($VeeamDistVersionInfo.FilePrivatePart) {
+                                        { $_ -lt 1420 } { "Error: Unmonitorable versie - upgrade naar 12.0.0.1420 + Patches of nieuwer"; break }
+                                        1420 {
+                                            if ($VeeamDistVersionInfo.Comments -like "Private Fix KB20230412*") {
+                                                "OK: Patched version" ; break
+                                            }
+                                            else {
+                                                "Error: Unmonitorable versie - Installeer de patch P20230412"
+                                            }
+                                        }
+                                        { $_ -gt 1420 } { "OK: Fixed version" ; break }
+                                        default { "Error: Fout bij uitlezen versie" ; break }
+                                    }
+                                }
+                                { $_ -ge 1 } { "OK: Fixed version" ; break }
+                                default { "Error: Fout bij uitlezen versie" ; break }
+                            }
+                        }
+                        { $_ -ge 1 } { "OK: Fixed version" ; break }
+                        default { "Error: Fout bij uitlezen versie" ; break }
+                    }
+                }
+                { $_ -ge 13 } { "OK: Fixed version" }
                 default { "Error: Fout bij uitlezen versie" ; break }
             }
         }
