@@ -53,6 +53,12 @@ $Output = If ((Get-Service | where-object { $_.DisplayName -like "Veeam Distribu
                                             if ($VeeamDistVersionInfo.Comments -like "Private Fix KB20220302*") {
                                                 "OK: Patched version" ; break
                                             }
+                                            elseif ($VeeamDistVersionInfo.Comments -like "Private Fix KB2023*") {
+                                                "OK: Patched version" ; break
+                                            }
+                                            elseif ($VeeamDistVersionInfo.Comments -like "Private Fix KB2024*") {
+                                                "OK: Patched version" ; break
+                                            }
                                             else {
                                                 "Error: Vulnerable versie - Installeer de patch P20220302"
                                             }
