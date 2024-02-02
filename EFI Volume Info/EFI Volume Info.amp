@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="7048972a-9625-4917-b8c6-7edbf8923e05" Name="EFI Volume Info" Description="VGhpcyBzY3JpcHQgb3V0cHV0cyB0aGUgaW5mbyBvZiB0aGUgRUZJIHBhcnRpdGlvbg==" Version="2.10.0.19" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{3e1d271e-fd5f-4f28-9d69-d81ff5574e44}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;OutputParameters&gt;&lt;Parameter ParameterName=&quot;TotalSize&quot; Label=&quot;Total Size&quot; ParameterType=&quot;number&quot; Value=&quot;Run PowerShell Script.Total Size&quot; /&gt;&lt;Parameter ParameterName=&quot;FreeSize&quot; Label=&quot;Free Size&quot; ParameterType=&quot;number&quot; Value=&quot;Run PowerShell Script.Free Size&quot; /&gt;&lt;/OutputParameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System">
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>e7e8d080-c6f8-494c-81a7-b45eff695012.TotalSize</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>TotalSize</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>e7e8d080-c6f8-494c-81a7-b45eff695012.FreeSize</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>FreeSize</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+    </hashset>
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.93.0.2" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>504,745</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="504,745" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.93.0.2, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="468,522" Moniker="e7e8d080-c6f8-494c-81a7-b45eff695012" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="f8d3cf36-ad43-4b4b-87e1-8988b73a572d" m_bTextLinkChange="False" script="JABFAEYASQAgAD0AIABHAGUAdAAtAFYAbwBsAHUAbQBlACAALQBVAG4AaQBxAHUAZQBJAGQAIAAiAFwAXAA/AFwAVgBvAGwAdQBtAGUAJAAoACgAKABHAGUAdAAtAFAAYQByAHQAaQB0AGkAbwBuACkALgBXAGgAZQByAGUAewAkAF8ALgBHAHAAdABUAHkAcABlACAALQBlAHEAIAAnAHsAYwAxADIAYQA3ADMAMgA4AC0AZgA4ADEAZgAtADEAMQBkADIALQBiAGEANABiAC0AMAAwAGEAMABjADkAMwBlAGMAOQAzAGIAfQAnAH0ALgBHAHUAaQBkACkAKQBcACIAIAAtAGUAYQAgADAADQAKAGkAZgAgACgAJABuAHUAbABsACAALQBlAHEAIAAkAEUARgBJACkAIAB7AA0ACgAgACAAIwAgAEkAcwBzAHUAZQBzACAAZgBpAG4AZABpAG4AZwAgAEUARgBJACAAcABhAHIAdABpAHQAaQBvAG4ADQAKACAAIAAkAFQAbwB0AGEAbABTAGkAegBlACAAPQAgAC0AMQANAAoAIAAgACQARgByAGUAZQBTAGkAegBlACAAPQAgAC0AMQANAAoAfQAgAGUAbABzAGUAIAB7AA0ACgAgACAAJABUAG8AdABhAGwAUwBpAHoAZQAgAD0AIAAkAEUARgBJAC4AUwBpAHoAZQANAAoAIAAgACQARgByAGUAZQBTAGkAegBlACAAPQAgACQARQBGAEkALgBTAGkAegBlAFIAZQBtAGEAaQBuAGkAbgBnAA0ACgB9AA==">
+          <p:RunPowerShellScript.InArgs>
+            <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+          </p:RunPowerShellScript.InArgs>
+          <p:RunPowerShellScript.OutArgs>
+            <p:OutArg x:Key="TotalSize" ArgType="number" DisplayName="Total Size" Name="TotalSize">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:Double">[RunPowerShellScript_TotalSize]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="FreeSize" ArgType="number" DisplayName="Free Size" Name="FreeSize">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:Double">[RunPowerShellScript_FreeSize]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+          </p:RunPowerShellScript.OutArgs>
+        </p:RunPowerShellScript>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_TotalSize" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_FreeSize" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
